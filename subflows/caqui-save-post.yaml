@@ -1,0 +1,26 @@
+appId: com.progic_app_rn
+
+---
+#Cenário 4: Salvar um Post Simples (deve ser executado após o Cenário 1(Criar post, pois depende de um post :D))
+- waitForAnimationToEnd
+- extendedWaitUntil:
+    visible: "Publicações"
+    timeout: 7000
+- scrollUntilVisible:
+    element: 
+      text: ""
+    direction: DOWN
+    timeout: 50000
+    speed: 40
+    visibilityPercentage: 100
+    centerElement: true
+- tapOn:
+    text: ""
+    index: 0
+- tapOn: "Salvos"
+- assertVisible:
+    text: "Teste via Maestro Framewo"
+    index: 0
+- tapOn:
+    point: "4%,8%"
+

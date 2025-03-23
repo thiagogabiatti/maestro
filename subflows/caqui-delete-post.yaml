@@ -1,0 +1,25 @@
+appId: com.progic_app_rn
+
+---
+#Cenário 5: Deletar um Post Simples
+- tapOn: "Publicações"
+- waitForAnimationToEnd
+- extendedWaitUntil:
+    visible: "Publicações"
+    timeout: 7000
+- scrollUntilVisible:
+    element: 
+      text: ""
+    direction: DOWN
+    timeout: 50000
+    speed: 40
+    visibilityPercentage: 100
+    centerElement: true
+- tapOn:
+    text: ""
+    index: 0
+- tapOn: "Deletar Post"
+#- assertVisible: "Post Excluído" -> falta esse feedback para o usuário no app
+
+
+

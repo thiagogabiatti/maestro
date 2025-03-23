@@ -1,0 +1,19 @@
+appId: com.progic_app_rn
+
+---
+#Cenário 5: Deletar um Post Simples
+- waitForAnimationToEnd
+- extendedWaitUntil:
+    visible: "Publicações"
+    timeout: 7000
+- tapOn: "Publicações"
+- tapOn:
+    point: "92%,8%" # exemplo critico de que precisamos de id, clique no icone de perfil
+- tapOn:
+    point: "43%,24%"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,20%"
+- assertVisible: "Detalhes da Publicação"
+- tapOn:
+    point: "4%,8%"

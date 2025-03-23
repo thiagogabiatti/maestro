@@ -1,0 +1,19 @@
+appId: com.progic_app_rn
+
+---
+#Cenário 3: Comentar em um Post Simples (deve ser executado após o Cenário 2(like))
+- waitForAnimationToEnd
+- extendedWaitUntil:
+    visible: "Publicações"
+    timeout: 7000
+- tapOn:
+    text: "0"
+    index: 0
+- tapOn: "Escreva seu comentário"
+- inputText: "Comentando via maestro framework"
+- tapOn: "Enviar"
+- assertVisible: "Novo Comentário"
+- tapOn:
+    point: "4%,8%"
+
+

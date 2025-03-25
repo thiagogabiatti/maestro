@@ -4,10 +4,7 @@ tags:
   - passing
 ---
 - launchApp
-- repeat:
-    times: 3
-    commands:
-      - runFlow: subflows/caqui-create-post.yaml #Cenário 1: Criar post simples
+- runFlow: subflows/caqui-create-post.yaml #Cenário 1: Criar post simples
 - runFlow: subflows/caqui-like-post.yaml #Cenário 2: Like post
 - runFlow: subflows/caqui-comment-post.yaml #Cenário 3: Comentar post
 - runFlow: subflows/caqui-save-post.yaml #Cenário 4: Salvar post

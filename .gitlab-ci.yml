@@ -8,4 +8,4 @@ th-job:
   script:
     - curl -Ls "https://get.maestro.mobile.dev" | bash
     - export PATH="$PATH:$HOME/.maestro/bin"
-    - maestro cloud --apikey rb_vjD2WIqEVTRyeDis5cbbtCO2jijodytDqJmKxKhavK8yuuMLRIWHBmPtAnuqSPreQ4DR9O2svFE4OE2DVNysv560huCDJesucPn progic_app.apk .maestro/
+    - maestro cloud --apikey c1dcb074-3954-4447-aa0e-78a4df3b092e progic_app.apk .maestro/

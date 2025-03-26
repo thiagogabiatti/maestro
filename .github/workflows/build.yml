@@ -1,35 +1,36 @@
 name: Build
-
 on:
   push:
     branches:
       - master
       - main
   pull_request:
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     container:
       image: docker.io/cypress/browsers
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
+        
       - name: Install Maestro
         run: |
           curl -Ls "https://get.maestro.mobile.dev" | bash
-          echo "$HOME/.maestro/bin" >> $GITHUB_PATH
-
+          echo "PATH=$PATH:$HOME/.maestro/bin" >> $GITHUB_ENV
+          
+      - name: Verify Maestro Installation
+        run: |
+          ls -la $HOME/.maestro/bin
+          which maestro || echo "Maestro not in PATH"
+          
       # Exportar chave API e Project ID do Maestro
       - name: Set Environment Variables
         run: |
           echo "MAESTRO_API_KEY=rb_F5i4oQCtSuHwiIGsed8JHyuE2hIlt1Fz3MopB4YWyXM0CpJR2VDJTXf5vWHhvfOqzFSiLYAnQzHWXtPGJy3jYORHRX07xZVFz8c" >> $GITHUB_ENV
           echo "PROJECT_ID=proj_01jq09brwve3kbscdzp128g307" >> $GITHUB_ENV
-
+          
       # Rodar testes usando o Maestro
       - name: Run Maestro Tests
         run: |
-          maestro cloud --apiKey $MAESTRO_API_KEY --project-id $PROJECT_ID progic_app.apk .maestro/
+          $HOME/.maestro/bin/maestro cloud --apiKey $MAESTRO_API_KEY --project-id $PROJECT_ID progic_app.apk .maestro/
